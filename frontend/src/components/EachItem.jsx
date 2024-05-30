@@ -18,14 +18,14 @@
 
 import React from 'react';
 
-function TodoItem({ todo, deleteTodo }) {
+function EachItem({ item, deleteItem }) {
   return (
     <tr>
-      <td style={{ textDecoration: todo.completed ? 'line-through' : '' }}>{todo.text}</td>
-      <td>{todo.completed ? 'Yes' : 'No'}</td>
+      <td style={{ textDecoration: item.completed ? 'line-through' : '' }}>{item.text}</td>
+      <td>{item.completed ? 'Yes' : 'No'}</td>
       <td>
         <span
-          onClick={() => deleteTodo(todo._id)}
+          onClick={() => deleteItem(item._id)}
           style={{ cursor: 'pointer', color: 'red' }}
         >
           Delete
@@ -35,4 +35,4 @@ function TodoItem({ todo, deleteTodo }) {
   );
 }
 
-export default TodoItem;
+export default EachItem;

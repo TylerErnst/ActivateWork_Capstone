@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react'
 
 import './App.css'
 
-import TodoForm from './components/TodoForm';
-import TodoList from './components/TodoList';
+import SearchForm from './components/SearchForm';
+import ItemList from './components/ItemList';
 
 const BASE_URL = import.meta.env.DEV ? 
 'http://localhost:8080/api/todos' : 
@@ -13,26 +13,26 @@ const BASE_URL = import.meta.env.DEV ?
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [todos, setTodos] = useState([]);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    async function getTodos() {
+    async function getItems() {
       try {
         setIsLoading(true);
         const response = await fetch(BASE_URL);
         const data = await response.json();
         console.log(data);
-        setTodos(data);
+        setItems(data);
       } catch (err) {
         console.log(err);
       } finally {
         setIsLoading(false);
       }
     }
-    getTodos();
+    getItems();
   }, []);
 
-  const addTodo = async (body) => {
+  const addItem = async (body) => {
     try {
       setIsLoading(true);
       const response = await fetch(BASE_URL, {
@@ -42,8 +42,8 @@ function App() {
           'Content-Type': 'application/json',
         },
       });
-      const newTodo = await response.json();
-      setTodos([...todos, newTodo]);
+      const newItem = await response.json();
+      setItems([...items, newItem]);
     } catch (err) {
       console.log(err);
     } finally {
@@ -51,13 +51,13 @@ function App() {
     }
   };
 
-  const deleteTodo = async (id) => {
+  const deleteItem = async (id) => {
     try {
       setIsLoading(true);
       await fetch(`${BASE_URL}/${id}`, {
         method: 'DELETE',
       });
-      setTodos(todos.filter((todo) => todo._id !== id));
+      setItems(items.filter((item) => item._id !== id));
     } catch (err) {
       console.log(err);
     } finally {
@@ -67,9 +67,9 @@ function App() {
 
   return (
     <div>
-      <h1>Todos</h1>
-      <TodoForm addTodo={addTodo} />
-      {isLoading ? <p>Loading...</p> : <TodoList todos={todos} deleteTodo={deleteTodo} />}
+      <h1>Items</h1>
+      <SearchForm addItem={addItem} />
+      {isLoading ? <p>Loading...</p> : <ItemList items={items} deleteItem={deleteItem} />}
     </div>
   );
 }

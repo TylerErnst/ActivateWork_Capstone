@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function TodoForm({ addTodo }) {
+function SearchForm({ addItem }) {
   const textRef = useRef();
   const completeRef = useRef();
 
@@ -11,7 +11,7 @@ function TodoForm({ addTodo }) {
       completed: completeRef.current.checked,
       userId: 'bob',
     };
-    await addTodo(body);
+    await addItem(body);
     textRef.current.value = '';
     completeRef.current.checked = false;
   };
@@ -41,9 +41,9 @@ function TodoForm({ addTodo }) {
         <input type="checkbox" ref={completeRef} />
       </label>
       <br /><br />
-      <button>Add Todo</button>
+      <button>Add Item</button>
     </form>
   );
 }
 
-export default TodoForm;
+export default SearchForm;

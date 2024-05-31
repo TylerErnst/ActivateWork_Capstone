@@ -1,30 +1,30 @@
-import Todo from "../models/TodoModel.js";
+import Search from "../models/SearchModel.js";
 
-export const getTodos = async (req,res) => {
+export const getSearches = async (req,res) => {
     try {
-        const todos = await Todo.find();
-        res.status(200).json(todos);
+        const searches = await Search.find();
+        res.status(200).json(searches);
     } catch (error) {
         console.log(error.message);
         res.status(400).json(error);
     }
 }
 
-export const createTodo = async (req,res) => {
+export const createSearch = async (req,res) => {
     try {
         console.log(req.body);
-        const todo = await Todo.create(req.body);
-        res.status(200).json(todo);
+        const search = await Search.create(req.body);
+        res.status(200).json(search);
     } catch (error) {
         console.log(error.message);
         res.status(400).json(error);
     }
 }
 
-//  /api/todos/:id
-export const deleteTodo = async (req,res) => {
+//  /api/searches/:id
+export const deleteSearch = async (req,res) => {
     try {
-        await Todo.findByIdAndDelete(req.params.id);
+        await Search.findByIdAndDelete(req.params.id);
         res.status(200).json({  message: 'successfully deleted',
                                 id: req.params.id })
     } catch (error) {

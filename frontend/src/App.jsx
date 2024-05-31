@@ -6,7 +6,7 @@ import SearchForm from './components/SearchForm';
 import ItemList from './components/ItemList';
 
 const BASE_URL = import.meta.env.DEV ? 
-'http://localhost:8080/api/todos' : 
+'http://localhost:8080/api/searches' : 
 '' // Deploy Link
 
 

@@ -1,18 +1,25 @@
 import React, { useRef } from 'react';
 
 function SearchForm({ addItem }) {
-  const textRef = useRef();
-  const completeRef = useRef();
+  const searchRef = useRef();
+  const excludeRef = useRef();
+  const numberRef = useRef();
+  // const completeRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      text: textRef.current.value,
-      completed: completeRef.current.checked,
-      userId: 'bob',
+      keywords: searchRef.current.value,
+      excluded_keywords: excludeRef.current.value,
+      max_search_results: numberRef.current.value,
+
+      // text: searchRef.current.value,
+      // completed: completeRef.current.checked,
+      // userId: 'bob',
     };
     await addItem(body);
-    textRef.current.value = '';
+    searchRef.current.value = '';
+    excludeRef.current.value = '';
     completeRef.current.checked = false;
   };
 
@@ -21,25 +28,25 @@ function SearchForm({ addItem }) {
       <label>
         Search:
         <br />
-        <input type="text" ref={textRef} placeholder='Enter keywords or item number' />
+        <input type="text" ref={searchRef} placeholder='Enter keywords or item number' />
       </label>
       <br />
       <label>
-        <input type="text" placeholder='Exclude words from your search' />
+        <input type="text" ref={excludeRef}placeholder='Exclude words from your search' />
       </label>
       <br />
       <label>
         <span>Number of results to look at:</span>
-        <select name="" id="">
+        <select ref={numberRef}>
           <option value="60">60</option>
           <option value="120">120</option>
           <option value="240">240</option>
         </select>
       </label>
       <br />
-      <label>
+      {/* <label>
         <input type="checkbox" ref={completeRef} />
-      </label>
+      </label> */}
       <br /><br />
       <button>Add Item</button>
     </form>

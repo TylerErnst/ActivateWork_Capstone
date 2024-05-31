@@ -21,7 +21,8 @@ import React from 'react';
 function EachItem({ item, deleteItem }) {
   return (
     <tr>
-      <td style={{ textDecoration: item.completed ? 'line-through' : '' }}>{item.text}</td>
+      <td style={{ textDecoration: item.completed ? 'line-through' : '' }}>{item.keywords}</td>
+      <td>{item.excluded_keywords}</td>
       <td>{item.completed ? 'Yes' : 'No'}</td>
       <td>
         <span

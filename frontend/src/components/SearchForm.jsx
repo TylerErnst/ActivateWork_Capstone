@@ -37,9 +37,9 @@ function SearchForm({ addItem }) {
       <br />
       <label>
         <span>Number of results to look at:</span>
-        <select ref={numberRef}>
+        <select ref={numberRef} defaultValue="120">
           <option value="60">60</option>
-          <option value="120" selected="selected">120</option>
+          <option value="120">120</option>
           {/* API allows for a search of 240 (and defaults to that) but the db can't accept that much */}
           {/* <option value="240">240</option> */}
         </select>

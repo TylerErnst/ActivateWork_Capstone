@@ -27,12 +27,14 @@ export const addItem = async (search, setIsLoading, setItems, items) => {
       },
     });
   
-      console.log('Stored in DB:', dbResponse);
-  
-      // If newItem is successfully created, update the state
-      if (ebayResponse) {
-        setItems([...items, ebayResponse]);
-      }
+    const newItem = await dbResponse.json(); // Ensure response is parsed to JSON
+
+    console.log('Stored in DB:', newItem);
+
+    // If newItem is successfully created, update the state
+    if (newItem) {
+      setItems(prevItems => [...prevItems, newItem]); // Ensure the latest state is used
+    }
   
     } catch (err) {
       console.log(err);

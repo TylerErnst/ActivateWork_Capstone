@@ -21,9 +21,12 @@ import React from 'react';
 function EachItem({ item, deleteItem }) {
   return (
     <tr>
-      <td style={{ textDecoration: item.completed ? 'line-through' : '' }}>{item.keywords}</td>
+      <td>{item.keywords}</td>
       <td>{item.excluded_keywords}</td>
-      <td>{item.completed ? 'Yes' : 'No'}</td>
+      <td>{item.ebayData?.average_price}</td>
+      <td>{item.ebayData?.median_price}</td>
+      <td>{item.ebayData?.max_price}</td>
+      <td>{item.ebayData?.min_price}</td>
       <td>
         <span
           onClick={() => deleteItem(item._id)}

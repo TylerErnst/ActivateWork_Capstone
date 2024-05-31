@@ -1,9 +1,11 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import './App.css'
 
 import SearchForm from './components/SearchForm';
 import ItemList from './components/ItemList';
+import { addItem, deleteItem } from './services/itemService';
+import getEbayData from './services/ebay-api';
 
 const BASE_URL = import.meta.env.DEV ? 
 'http://localhost:8080/api/searches' : 
@@ -32,44 +34,22 @@ function App() {
     getItems();
   }, []);
 
-  const addItem = async (body) => {
-    try {
-      setIsLoading(true);
-      const response = await fetch(BASE_URL, {
-        method: 'POST',
-        body: JSON.stringify(body),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const newItem = await response.json();
-      setItems([...items, newItem]);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
+  const handleAddItem = async (body) => {
+    const newItem = await addItem(body, setIsLoading, setItems, items);
+    if (newItem) {
+      getEbayData(body);
     }
   };
 
-  const deleteItem = async (id) => {
-    try {
-      setIsLoading(true);
-      await fetch(`${BASE_URL}/${id}`, {
-        method: 'DELETE',
-      });
-      setItems(items.filter((item) => item._id !== id));
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setIsLoading(false);
-    }
+  const handleDeleteItem = (id) => {
+    deleteItem(id, setIsLoading, setItems, items);
   };
 
   return (
     <div>
       <h1>Items</h1>
-      <SearchForm addItem={addItem} />
-      {isLoading ? <p>Loading...</p> : <ItemList items={items} deleteItem={deleteItem} />}
+      <SearchForm addItem={handleAddItem} />
+      {isLoading ? <p>Loading...</p> : <ItemList items={items} deleteItem={handleDeleteItem} />}
     </div>
   );
 }

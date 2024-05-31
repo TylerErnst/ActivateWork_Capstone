@@ -20,7 +20,7 @@ function SearchForm({ addItem }) {
     await addItem(body);
     searchRef.current.value = '';
     excludeRef.current.value = '';
-    completeRef.current.checked = false;
+    // completeRef.current.checked = false;
   };
 
   return (

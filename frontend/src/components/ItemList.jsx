@@ -2,11 +2,14 @@ import React from 'react';
 import EachItem from './EachItem';
 
 function ItemList({ items, deleteItem }) {
+  console.log(items.map(item => item._id));
+
   return (
     <table>
       <thead>
         <tr>
-          <th>Item</th>
+          <th>Keywords</th>
+          <th>Excluded Keywords</th>
           <th>Average Price</th>
           <th>Median Price</th>
           <th>Max Price</th>

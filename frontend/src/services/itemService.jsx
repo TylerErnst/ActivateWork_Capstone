@@ -2,18 +2,20 @@ import getEbayData from "./ebay-api";
 
 const BASE_URL = import.meta.env.DEV ? 'http://localhost:8080/api/searches' : ''; // Deploy Link
 
-export const addItem = async (search, setIsLoading, setItems, items) => {
+export const addItem = async (body, setIsLoading, setItems, items) => {
     try {
       setIsLoading(true);
   
+      const search = body.search;
       const ebayResponse = await getEbayData(search);
 
       // Now store the eBay data in your database
       const itemData = {
+        search_name: body.other.search_name,
         keywords: search.keywords,
         excluded_keywords: search.excluded_keywords,
         max_search_results: search.max_search_results,
-        userId: 'bob',
+        userId: body.other.userId,
         ebayData: ebayResponse
       };
 

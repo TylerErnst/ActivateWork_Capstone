@@ -21,6 +21,7 @@ import React from 'react';
 function EachItem({ item, deleteItem }) {
   return (
     <tr>
+      <td>{item.search_name}</td>
       <td>{item.keywords}</td>
       <td style={{ textDecoration: 'line-through', color: 'coral'}}>{item.excluded_keywords}</td>
       <td>{item.ebayData?.average_price}</td>

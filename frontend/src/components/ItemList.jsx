@@ -8,6 +8,7 @@ function ItemList({ items, deleteItem }) {
     <table>
       <thead>
         <tr>
+          <th>Name</th>
           <th>Keywords</th>
           <th>Excluded Keywords</th>
           <th>Average Price</th>

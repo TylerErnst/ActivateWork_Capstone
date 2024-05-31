@@ -4,23 +4,25 @@ function SearchForm({ addItem }) {
   const searchRef = useRef();
   const excludeRef = useRef();
   const numberRef = useRef();
-  // const completeRef = useRef();
+  const nameRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      keywords: searchRef.current.value,
-      excluded_keywords: excludeRef.current.value,
-      max_search_results: numberRef.current.value,
-
-      // text: searchRef.current.value,
-      // completed: completeRef.current.checked,
-      // userId: 'bob',
+      search: {
+        keywords: searchRef.current.value,
+        excluded_keywords: excludeRef.current.value,
+        max_search_results: numberRef.current.value,
+      },
+      other: {
+        search_name: nameRef.current.value,
+        userId: 'Tyler',
+      }
     };
     await addItem(body);
     searchRef.current.value = '';
     excludeRef.current.value = '';
-    // completeRef.current.checked = false;
+    nameRef.current.value = '';
   };
 
   return (
@@ -45,9 +47,9 @@ function SearchForm({ addItem }) {
         </select>
       </label>
       <br />
-      {/* <label>
-        <input type="checkbox" ref={completeRef} />
-      </label> */}
+      <label>
+        <input type="text" ref={nameRef} placeholder='Custom Search Name'/>
+      </label>
       <br /><br />
       <button>Add Item</button>
     </form>

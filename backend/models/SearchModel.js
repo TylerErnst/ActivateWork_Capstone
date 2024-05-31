@@ -17,6 +17,7 @@ const ebayDataSchema = new mongoose.Schema({
 });
 
 const searchSchema = new mongoose.Schema({
+    search_name: { type: String, default: '' },
     keywords: { type: String, required: true },
     excluded_keywords: { type: String, default: '' },
     max_search_results: { type: Number, required: true },

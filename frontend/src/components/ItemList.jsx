@@ -1,7 +1,7 @@
 import React from 'react';
 import EachItem from './EachItem';
 
-function ItemList({ items, deleteItem }) {
+function ItemList({ items, deleteItem, refreshItem }) {
   // console.log(items.map(item => item._id));
 
   return (
@@ -16,11 +16,12 @@ function ItemList({ items, deleteItem }) {
           <th>Max Price</th>
           <th>Min Price</th>
           <th>Delete?</th>
+          <th>Refresh?</th>
         </tr>
       </thead>
       <tbody>
         {items.map((item) => (
-          <EachItem key={item._id} item={item} deleteItem={deleteItem} />
+          <EachItem key={item._id} item={item} deleteItem={deleteItem} refreshItem={refreshItem} />
         ))}
       </tbody>
     </table>

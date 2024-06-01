@@ -4,7 +4,7 @@ import "./App.css";
 
 import SearchForm from "./components/SearchForm";
 import ItemList from "./components/ItemList";
-import { addItem, deleteItem } from "./services/itemService";
+import { getItems, addItem, deleteItem, refreshItem } from "./services/itemService";
 import getEbayData from "./services/ebay-api";
 
 const BASE_URL = import.meta.env.DEV
@@ -16,20 +16,7 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    async function getItems() {
-      try {
-        setIsLoading(true);
-        const response = await fetch(BASE_URL);
-        const data = await response.json();
-        console.log(data);
-        setItems(data);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    getItems();
+    getItems(setIsLoading, setItems);
   }, []);
 
   const handleAddItem = async (body) => {
@@ -43,6 +30,10 @@ function App() {
     deleteItem(id, setIsLoading, setItems, items);
   };
 
+  const handleRefreshItem = (id) => {
+    refreshItem(id, setIsLoading, setItems, items);
+  }
+
   return (
     <div>
       <h1>Items</h1>
@@ -50,7 +41,7 @@ function App() {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ItemList items={items} deleteItem={handleDeleteItem} />
+        <ItemList items={items} deleteItem={handleDeleteItem} refreshItem={handleRefreshItem}/>
       )}
     </div>
   );

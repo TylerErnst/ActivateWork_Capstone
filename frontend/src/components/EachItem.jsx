@@ -18,7 +18,7 @@
 
 import React from 'react';
 
-function EachItem({ item, deleteItem }) {
+function EachItem({ item, deleteItem, refreshItem }) {
   return (
     <tr>
       <td>{item.search_name}</td>
@@ -34,6 +34,14 @@ function EachItem({ item, deleteItem }) {
           style={{ cursor: 'pointer', color: 'red' }}
         >
           Delete
+        </span>
+      </td>
+      <td>
+        <span
+          onClick={() => refreshItem(item._id)}
+          style={{ cursor: 'pointer', color: 'olive' }}
+        >
+          Refresh
         </span>
       </td>
     </tr>

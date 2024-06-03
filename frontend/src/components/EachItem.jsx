@@ -19,10 +19,24 @@
 import React from 'react';
 
 function EachItem({ item, deleteItem, refreshItem }) {
+  let condition = '';
+  switch(item.aspects[0]?.value){
+    // <option value="">Not Specified</option>
+          case "1000":
+            condition = "New";
+            break;
+          case "3000":
+            condition = "Used";
+            break;
+          case "7000":
+            condition = "For parts or not working";
+            break;
+  }
+
   return (
     <tr>
       <td>{item.search_name}</td>
-      <td></td>
+      <td>{condition}</td>
       <td>{item.keywords}</td>
       <td style={{ textDecoration: 'line-through', color: 'coral'}}>{item.excluded_keywords}</td>
       <td>{item?.category_id}</td>

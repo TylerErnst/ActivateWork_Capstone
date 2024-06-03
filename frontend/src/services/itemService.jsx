@@ -35,13 +35,14 @@ export const addItem = async (body, setIsLoading, setItems, items) => {
         console.log('addItem Search', search);
         const ebayResponse = await getEbayData(search);
 
-        // Now store the eBay data in your database
+        // Logic to request and store eBay data in the database
         const itemData = {
             search_name: body.other.search_name,
             keywords: search.keywords,
             excluded_keywords: search.excluded_keywords,
             max_search_results: search.max_search_results,
             category_id: search.category_id,
+            aspects: search.aspects,
             userId: body.other.userId,
             ebayData: ebayResponse
         };
@@ -97,6 +98,7 @@ export const refreshItem = async (id, setIsLoading, setItems, items) => {
               excluded_keywords: item.excluded_keywords,
               max_search_results: item.max_search_results,
               category_id: item.category_id,
+              aspects: item.aspects,
         }
 
         console.log('refreshItem Search', search)

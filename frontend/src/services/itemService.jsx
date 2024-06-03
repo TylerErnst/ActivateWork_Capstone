@@ -29,40 +29,41 @@ export const getItemById = async (id) => {
 
 export const addItem = async (body, setIsLoading, setItems, items) => {
     try {
-      setIsLoading(true);
-  
-      const search = body.search;
-      console.log('addItem Search', search);
-      const ebayResponse = await getEbayData(search);
+        setIsLoading(true);
+    
+        const search = body.search;
+        console.log('addItem Search', search);
+        const ebayResponse = await getEbayData(search);
 
-      // Now store the eBay data in your database
-      const itemData = {
-        search_name: body.other.search_name,
-        keywords: search.keywords,
-        excluded_keywords: search.excluded_keywords,
-        max_search_results: search.max_search_results,
-        userId: body.other.userId,
-        ebayData: ebayResponse
-      };
+        // Now store the eBay data in your database
+        const itemData = {
+            search_name: body.other.search_name,
+            keywords: search.keywords,
+            excluded_keywords: search.excluded_keywords,
+            max_search_results: search.max_search_results,
+            category_id: search.category_id,
+            userId: body.other.userId,
+            ebayData: ebayResponse
+        };
 
-      console.log('Item data', itemData)
-  
-    const dbResponse = await fetch(BASE_URL, {
-      method: 'POST',
-      body: JSON.stringify(itemData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  
-    const newItem = await dbResponse.json(); // Ensure response is parsed to JSON
+        console.log('Sent to DB:', itemData)
+    
+        const dbResponse = await fetch(BASE_URL, {
+            method: 'POST',
+            body: JSON.stringify(itemData),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-    console.log('Stored in DB:', newItem);
+        const newItem = await dbResponse.json(); // Ensure response is parsed to JSON
 
-    // If newItem is successfully created, update the state
-    if (newItem) {
-        setItems([...items, newItem]);
-    }
+        console.log('Stored in DB:', newItem);
+
+        // If newItem is successfully created, update the state
+        if (newItem) {
+            setItems([...items, newItem]);
+        }
   
     } catch (err) {
       console.log(err);
@@ -95,6 +96,7 @@ export const refreshItem = async (id, setIsLoading, setItems, items) => {
               keywords: item.keywords,
               excluded_keywords: item.excluded_keywords,
               max_search_results: item.max_search_results,
+              category_id: item.category_id,
         }
 
         console.log('refreshItem Search', search)

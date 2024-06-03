@@ -21,6 +21,7 @@ const searchSchema = new mongoose.Schema({
     keywords: { type: String, required: true },
     excluded_keywords: { type: String, default: '' },
     max_search_results: { type: Number, required: true },
+    category_id: { type: String },
     userId: { type: String, required: true },
     ebayData: ebayDataSchema
 });

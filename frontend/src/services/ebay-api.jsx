@@ -18,7 +18,7 @@ export default async function getEbayData(search){
           keywords: search.keywords,
           excluded_keywords: search.excluded_keywords,
           max_search_results: search.max_search_results, // 60, 120, OR 240
-        //   category_id: '9355',
+          category_id: search.category_id,
           remove_outliers: 'true',
           site_id: '0',
         //   aspects: [

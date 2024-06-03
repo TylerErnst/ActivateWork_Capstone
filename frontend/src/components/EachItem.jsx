@@ -22,8 +22,10 @@ function EachItem({ item, deleteItem, refreshItem }) {
   return (
     <tr>
       <td>{item.search_name}</td>
+      <td></td>
       <td>{item.keywords}</td>
       <td style={{ textDecoration: 'line-through', color: 'coral'}}>{item.excluded_keywords}</td>
+      <td>{item?.category_id}</td>
       <td>{item.ebayData?.average_price}</td>
       <td>{item.ebayData?.median_price}</td>
       <td>{item.ebayData?.max_price}</td>

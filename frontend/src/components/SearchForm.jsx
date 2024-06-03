@@ -15,6 +15,13 @@ function SearchForm({ addItem }) {
         keywords: searchRef.current.value,
         excluded_keywords: excludeRef.current.value,
         max_search_results: numberRef.current.value,
+        category_id: catRef.current.value,
+        aspects: [
+          {
+            name: 'LH_ItemCondition',
+            value: conditionRef.current.value
+          }
+        ]
       },
       other: {
         search_name: nameRef.current.value,
@@ -24,6 +31,7 @@ function SearchForm({ addItem }) {
     await addItem(body);
     searchRef.current.value = '';
     excludeRef.current.value = '';
+    catRef.current.value = '';
     nameRef.current.value = '';
   };
 
@@ -41,7 +49,7 @@ function SearchForm({ addItem }) {
       <br />
       <br />
       <label>
-        <input type="text" ref={catRef} placeholder='Category ID'/>
+        <input type="number" ref={catRef} placeholder='Category ID'/>
         <br />
         <a href="https://www.isoldwhat.com/">Category ID Lookup</a>
       </label>

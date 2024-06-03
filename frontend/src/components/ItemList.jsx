@@ -9,8 +9,10 @@ function ItemList({ items, deleteItem, refreshItem }) {
       <thead>
         <tr>
           <th>Name</th>
+          <th>Condition</th>
           <th>Keywords</th>
           <th>Excluded Keywords</th>
+          <th>Category ID</th>
           <th>Average Price</th>
           <th>Median Price</th>
           <th>Max Price</th>

@@ -56,12 +56,17 @@ tr:nth-child(even) td {
   min-width: 100px;
 } */
 
-td span#delete {
+td.num {
+  text-align: right;
+  min-width: 50px;
+}
+
+td span.delete {
   cursor: pointer;
   color: var(--delete-color);
 }
 
-td span#refresh {
+td span.refresh {
   cursor: pointer;
   color: var(--refresh-color);
 }

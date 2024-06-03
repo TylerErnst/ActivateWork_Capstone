@@ -40,15 +40,15 @@ function EachItem({ item, deleteItem, refreshItem }) {
       <td>{item.keywords}</td>
       <td style={{ textDecoration: 'line-through', color: 'coral'}}>{item.excluded_keywords}</td>
       <td>{item?.category_id}</td>
-      <td>{item.ebayData?.average_price}</td>
-      <td>{item.ebayData?.median_price}</td>
-      <td>{item.ebayData?.max_price}</td>
-      <td>{item.ebayData?.min_price}</td>
+      <td className='num'>{item.ebayData?.average_price?.toFixed(2)}</td>
+      <td className='num'>{item.ebayData?.median_price?.toFixed(2)}</td>
+      <td className='num'>{item.ebayData?.max_price?.toFixed(2)}</td>
+      <td className='num'>{item.ebayData?.min_price?.toFixed(2)}</td>
       <td>
         <span
           onClick={() => deleteItem(item._id)}
           // style={{ cursor: 'pointer', color: 'red' }}
-          id='delete'
+          className='delete'
         >
           Delete
         </span>
@@ -57,7 +57,7 @@ function EachItem({ item, deleteItem, refreshItem }) {
         <span
           onClick={() => refreshItem(item._id)}
           // style={{ cursor: 'pointer', color: 'olive' }}
-          id='refresh'
+          className='refresh'
         >
           Refresh
         </span>

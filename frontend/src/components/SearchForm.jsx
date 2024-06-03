@@ -40,7 +40,7 @@ function SearchForm({ addItem }) {
       <label>
         Search:
         <br />
-        <input type="text" ref={searchRef} placeholder='Enter keywords or item number' />
+        <input type="text" ref={searchRef} placeholder='Enter keywords or item number' required/>
       </label>
       <br />
       <label>

@@ -47,7 +47,8 @@ function EachItem({ item, deleteItem, refreshItem }) {
       <td>
         <span
           onClick={() => deleteItem(item._id)}
-          style={{ cursor: 'pointer', color: 'red' }}
+          // style={{ cursor: 'pointer', color: 'red' }}
+          id='delete'
         >
           Delete
         </span>
@@ -55,7 +56,8 @@ function EachItem({ item, deleteItem, refreshItem }) {
       <td>
         <span
           onClick={() => refreshItem(item._id)}
-          style={{ cursor: 'pointer', color: 'olive' }}
+          // style={{ cursor: 'pointer', color: 'olive' }}
+          id='refresh'
         >
           Refresh
         </span>

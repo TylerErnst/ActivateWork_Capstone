@@ -76,8 +76,10 @@ function SearchForm({ addItem }) {
       <label>
         <input type="text" ref={nameRef} placeholder='Custom Search Name'/>
       </label>
-      <br /><br />
+      <br />
       <button>Add Item</button>
+      <br />
+      <br />
     </form>
   );
 }

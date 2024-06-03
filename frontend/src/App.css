@@ -74,3 +74,23 @@ td span.refresh {
 td span:hover {
   text-decoration: underline;
 }
+
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: var(--table-cell-bg);
+  border-radius: 3px;
+}
+
+.pagination button.active {
+  background-color: var(--table-cell-alt-bg);
+  border: solid 1px var(--text-color);
+  color: white;
+}

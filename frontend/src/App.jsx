@@ -4,6 +4,7 @@ import "./App.css";
 
 import SearchForm from "./components/SearchForm";
 import ItemList from "./components/ItemList";
+import Navbar from "./components/Navbar";
 import { getItems, addItem, deleteItem, refreshItem } from "./services/itemService";
 import getEbayData from "./services/ebay-api";
 
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <div>
+      <Navbar />
       <h1>Items</h1>
       <SearchForm addItem={handleAddItem} />
       {isLoading ? (

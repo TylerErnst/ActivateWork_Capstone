@@ -29,13 +29,13 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar user={userAuth} setUser={setUserAuth}/>
       <Routes>
         <Route path="/" element={<Home user={userAuth}/>} />
         <Route path="/ebay" element={<Ebay />} />
         <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp setUser={setUserAuth}/>} />
+        <Route path="/login" element={<Login setUser={setUserAuth}/>} />
       </Routes>
     </Router>
   );

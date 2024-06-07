@@ -1,8 +1,9 @@
 #root {
   /* max-width: 1280px; */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 2rem;
   text-align: center;
+  border: 5px solid purple;
 }
 
 :root {
@@ -28,10 +29,12 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  border: 5px solid green;
 }
 
 table {
   border-collapse: collapse;
+  border: 5px solid pink;
 }
 
 th, td {
@@ -108,12 +111,14 @@ td span:hover {
   
   position: fixed;
   top: 0;
-  width: 100%;
+  /* width: 100%; */
+  border: 5px solid coral;
 }
 
 nav ul {
   padding: 0;
-  margin: 0;
+  margin-left: auto;
+  border: 5px solid blue;
   list-style: none;
   display: flex;
   gap: 1rem;

@@ -1,6 +1,8 @@
 import getEbayData from "./ebay-api";
 
-const BASE_URL = import.meta.env.DEV ? 'http://localhost:8080/api/searches' : ''; // Deploy Link
+const BASE_URL = import.meta.env.DEV ? 
+'http://localhost:8080/api/searches' : 
+''; // Deploy Link
 
 export const getItems = async function(setIsLoading, setItems) {
     try {

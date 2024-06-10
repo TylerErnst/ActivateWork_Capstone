@@ -6,7 +6,7 @@ import ItemList from "./ItemList";
 import { getItems } from "../../services/itemService";
 import { useItemHandlers } from "../../services/useItemHandlers";
 
-function Ebay({user}) {
+function CheckedList({user}) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);
   
@@ -15,6 +15,7 @@ function Ebay({user}) {
     }, []);
 
     const { handleAddItem, handleDeleteItem, handleRefreshItem, toggleInclude } = useItemHandlers(setIsLoading, setItems, items);
+    const filteredItems = items.filter(item => item.included);
 
     return (
         <>
@@ -24,7 +25,7 @@ function Ebay({user}) {
                 <p>Loading...</p>
             ) : (
                 <ItemList 
-                    items={items}
+                    items={filteredItems}
                     deleteItem={handleDeleteItem} 
                     refreshItem={handleRefreshItem} 
                     toggleChecked={toggleInclude}
@@ -35,4 +36,4 @@ function Ebay({user}) {
     )
 }
 
-export default Ebay;
+export default CheckedList;

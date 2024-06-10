@@ -152,3 +152,50 @@ export const refreshItem = async (id, setIsLoading, setItems, items) => {
     }
 };
 
+export const refreshIncludeItem = async (id, setIsLoading, setItems, items, checked) => {
+  
+  try {
+      setIsLoading(true);
+      console.log("CHECKED:", checked, id)
+     
+
+      // Construct the updated item data
+      const updatedItemData = {
+        included: checked
+      };
+
+      console.log('Included data', updatedItemData);
+
+      // Send a PATCH request to update the item in the database with the new eBay data
+      const response = await fetch(`${BASE_URL}/${id}`, {
+          method: 'PATCH',
+          body: JSON.stringify(updatedItemData),
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+
+      const result = await response.json(); // Ensure response is parsed to JSON
+
+        // Check if result has the correct structure and extract the updated item
+        const updatedItem = result.search ? result.search : result;
+
+        console.log('Updated in DB:', updatedItem);
+
+        // If the item is successfully updated, replace the existing item in the state with the updated one
+        if (updatedItem) {
+            setItems(prevItems => {
+              const updatedItems = prevItems.map(item => (item._id === id ? updatedItem : item));
+              console.log('Updated items:', updatedItems);
+              return updatedItems;
+            });
+          }
+        
+
+    } catch (err) {
+        console.log(err);
+    } finally {
+        setIsLoading(false);
+    }
+};
+

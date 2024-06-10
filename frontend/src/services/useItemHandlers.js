@@ -1,4 +1,4 @@
-import { addItem, deleteItem, refreshItem } from "./itemService";
+import { addItem, deleteItem, refreshItem, refreshIncludeItem } from "./itemService";
 import getEbayData from "./ebay-api";
 
 export const useItemHandlers = (setIsLoading, setItems, items) => {
@@ -23,6 +23,7 @@ export const useItemHandlers = (setIsLoading, setItems, items) => {
         item._id === id ? { ...item, checked } : item
       )
     );
+    refreshIncludeItem(id, setIsLoading, setItems, items, checked)
   };
 
   return {

@@ -69,7 +69,7 @@ function EachItem({ item, deleteItem, refreshItem, toggleChecked }) {
       <td>
         <input
           type="checkbox"
-          checked={item.checked || false}
+          checked={item.included || false}
           onChange={handleCheckboxChange}
         />
       </td>

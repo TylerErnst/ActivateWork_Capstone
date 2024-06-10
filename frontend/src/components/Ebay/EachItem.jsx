@@ -18,7 +18,11 @@
 
 import React from 'react';
 
-function EachItem({ item, deleteItem, refreshItem }) {
+function EachItem({ item, deleteItem, refreshItem, toggleChecked }) {
+  const handleCheckboxChange = (e) => {
+    toggleChecked(item._id, e.target.checked);
+  }
+
   let condition = '';
   switch(item.aspects[0]?.value){
     // <option value="">Not Specified</option>
@@ -61,6 +65,13 @@ function EachItem({ item, deleteItem, refreshItem }) {
         >
           Refresh
         </span>
+      </td>
+      <td>
+        <input
+          type="checkbox"
+          checked={item.checked || false}
+          onChange={handleCheckboxChange}
+        />
       </td>
     </tr>
   );

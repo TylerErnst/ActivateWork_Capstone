@@ -46,6 +46,7 @@ export const addItem = async (body, setIsLoading, setItems, items) => {
             category_id: search.category_id,
             aspects: search.aspects,
             userId: body.other.userId,
+            userEmail: body.other.userEmail,
             ebayData: ebayResponse
         };
 

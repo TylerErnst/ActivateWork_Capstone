@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EachItem from './EachItem';
 
-function ItemList({ items, deleteItem, refreshItem }) {
+function ItemList({ items, deleteItem, refreshItem, toggleChecked }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
@@ -33,11 +33,18 @@ function ItemList({ items, deleteItem, refreshItem }) {
           <th>Min Price</th>
           <th>Delete?</th>
           <th>Refresh?</th>
+          <th>Include?</th>
         </tr>
       </thead>
       <tbody>
         {currentItems.map((item) => (
-          <EachItem key={item._id} item={item} deleteItem={deleteItem} refreshItem={refreshItem} />
+          <EachItem 
+            key={item._id} 
+            item={item} 
+            deleteItem={deleteItem} 
+            refreshItem={refreshItem} 
+            toggleChecked={toggleChecked}
+          />
         ))}
       </tbody>
     </table>

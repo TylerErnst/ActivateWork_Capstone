@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function SearchForm({ addItem }) {
+function SearchForm({ addItem, user }) {
   const searchRef = useRef();
   const excludeRef = useRef();
   const catRef = useRef();
@@ -25,7 +25,8 @@ function SearchForm({ addItem }) {
       },
       other: {
         search_name: nameRef.current.value,
-        userId: 'Tyler',
+        userId: user.user? user.user.uid : 'bob',
+        userEmail: user.user? user.user.email : "",
       }
     };
     await addItem(body);

@@ -16,7 +16,10 @@ function Navbar({ user, setUser }) {
         <Link to="/" className="site-title">Home</Link>
         <ul>
             <li>
-                <Link to="/ebay">Ebay</Link>
+                <Link to="/searches">Ebay</Link>
+            </li>
+            <li>
+                <Link to="/list">List</Link>
             </li>
             <li>
                 <Link to="/about">About</Link>

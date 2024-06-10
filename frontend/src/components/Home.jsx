@@ -5,7 +5,7 @@ function Home({user}) {
   return (
     <div>
       <h1>Welcome to the Home Page {user.user&&user.user.email}</h1>
-      <p>This is a basic home page created in React.</p>
+      <p>User ID: {user.user&&user.user.uid}</p>
     </div>
   );
 }

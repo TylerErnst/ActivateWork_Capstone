@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import ItemList from "./ItemList";
 
 import { getItems } from "../../services/itemService";
-import { handleAddItem, handleDeleteItem, handleRefreshItem, toggleChecked } from "../../services/useItemHandlers";
+import { useItemHandlers } from "../../services/useItemHandlers";
 
 function Ebay({user}) {
     const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +13,8 @@ function Ebay({user}) {
     useEffect(() => {
       getItems(setIsLoading, setItems);
     }, []);
+
+    const { handleAddItem, handleDeleteItem, handleRefreshItem, toggleInclude } = useItemHandlers(setIsLoading, setItems, items);
 
     return (
         <>
@@ -25,7 +27,7 @@ function Ebay({user}) {
                     items={items}
                     deleteItem={handleDeleteItem} 
                     refreshItem={handleRefreshItem} 
-                    toggleChecked={toggleChecked}
+                    toggleChecked={toggleInclude}
                     user={user}
                 />
             )}

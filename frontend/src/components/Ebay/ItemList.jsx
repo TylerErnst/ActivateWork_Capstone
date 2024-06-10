@@ -1,9 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import EachItem from './EachItem';
 
-function ItemList({ items, deleteItem, refreshItem, toggleChecked }) {
-  const [currentPage, setCurrentPage] = useState(1);
+
+function ItemList({ items, deleteItem, refreshItem, toggleInclude }) {
+  const { pageNumber } = useParams(); // Read page number from URL parameters
+  const navigate = useNavigate();
   const itemsPerPage = 10;
+
+  const [currentPage, setCurrentPage] = useState(Number(pageNumber) || 1);
+  
+  useEffect(() => {
+    // Update currentPage state when URL parameter changes
+    setCurrentPage(Number(pageNumber) || 1);
+  }, [pageNumber]);
+
+  useEffect(() => {
+    // Update the URL when currentPage state changes
+    const currentPath = location.pathname.split('/').slice(0, -1).join('/');
+    navigate(`${currentPath}/${currentPage}`, { replace: true });
+  }, [currentPage, navigate, location.pathname]);
+
+
 
   // Create a reversed copy of the items array to display most recent item first
   const reversedItems = [...items].reverse();
@@ -43,7 +61,7 @@ function ItemList({ items, deleteItem, refreshItem, toggleChecked }) {
             item={item} 
             deleteItem={deleteItem} 
             refreshItem={refreshItem} 
-            toggleChecked={toggleChecked}
+            toggleInclude={toggleInclude}
           />
         ))}
       </tbody>

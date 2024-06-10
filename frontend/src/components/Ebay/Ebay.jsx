@@ -27,7 +27,7 @@ function Ebay({user}) {
                     items={items}
                     deleteItem={handleDeleteItem} 
                     refreshItem={handleRefreshItem} 
-                    toggleChecked={toggleInclude}
+                    toggleInclude={toggleInclude}
                     user={user}
                 />
             )}

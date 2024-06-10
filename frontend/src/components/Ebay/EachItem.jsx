@@ -18,9 +18,10 @@
 
 import React from 'react';
 
-function EachItem({ item, deleteItem, refreshItem, toggleChecked }) {
+function EachItem({ item, deleteItem, refreshItem, toggleInclude }) {
+  
   const handleCheckboxChange = (e) => {
-    toggleChecked(item._id, e.target.checked);
+    toggleInclude(item._id, e.target.checked);
   }
 
   let condition = '';

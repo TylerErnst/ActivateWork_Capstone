@@ -14,6 +14,8 @@ function CheckedList({user}) {
       getItems(setIsLoading, setItems);
     }, []);
 
+    
+
     const { handleAddItem, handleDeleteItem, handleRefreshItem, toggleInclude } = useItemHandlers(setIsLoading, setItems, items);
     const filteredItems = items.filter(item => item.included);
 
@@ -28,7 +30,7 @@ function CheckedList({user}) {
                     items={filteredItems}
                     deleteItem={handleDeleteItem} 
                     refreshItem={handleRefreshItem} 
-                    toggleChecked={toggleInclude}
+                    toggleInclude={toggleInclude}
                     user={user}
                 />
             )}

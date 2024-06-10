@@ -33,8 +33,8 @@ function App() {
       <Navbar user={userAuth} setUser={setUserAuth}/>
       <Routes>
         <Route path="/" element={<Home user={userAuth}/>} />
-        <Route path="/searches" element={<Ebay user={userAuth}/>} />
-        <Route path="/list" element={<CheckedList user={userAuth} />} />
+        <Route path="/searches/:pageNumber" element={<Ebay user={userAuth}/>} />
+        <Route path="/list/:pageNumber" element={<CheckedList user={userAuth} />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp setUser={setUserAuth}/>} />
         <Route path="/login" element={<Login setUser={setUserAuth}/>} />

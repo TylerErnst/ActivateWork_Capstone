@@ -188,8 +188,8 @@ export const refreshIncludeItem = async (id, setIsLoading, setItems, items, chec
               const updatedItems = prevItems.map(item => (item._id === id ? updatedItem : item));
               console.log('Updated items:', updatedItems);
               return updatedItems;
-            });
-          }
+          });
+        }
         
 
     } catch (err) {

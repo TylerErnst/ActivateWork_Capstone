@@ -18,11 +18,11 @@ export const useItemHandlers = (setIsLoading, setItems, items) => {
   };
 
   const toggleInclude = (id, checked) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item._id === id ? { ...item, checked } : item
-      )
-    );
+    // setItems((prevItems) =>
+    //   prevItems.map((item) =>
+    //     item._id === id ? { ...item, checked } : item
+    //   )
+    // );
     refreshIncludeItem(id, setIsLoading, setItems, items, checked)
   };
 

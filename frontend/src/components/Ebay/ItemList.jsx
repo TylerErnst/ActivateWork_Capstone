@@ -3,7 +3,7 @@ import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import EachItem from './EachItem';
 
 
-function ItemList({ items, deleteItem, refreshItem, toggleInclude }) {
+function ItemList({ items, deleteItem, refreshItem, toggleInclude, user }) {
   const { pageNumber } = useParams(); // Read page number from URL parameters
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,6 +35,9 @@ function ItemList({ items, deleteItem, refreshItem, toggleInclude }) {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = reversedItems.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(reversedItems.length / itemsPerPage);
+  const filteredItems = currentItems.filter(item => item.userId === (user.user ? user.user.uid : 'public'));
+
+  // console.log(currentItems,filteredItems, 'test')
 
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -64,7 +67,7 @@ function ItemList({ items, deleteItem, refreshItem, toggleInclude }) {
           </tr>
         </thead>
         <tbody>
-          {currentItems.map((item) => (
+          {filteredItems.map((item) => (
             <EachItem 
               key={item._id} 
               item={item} 

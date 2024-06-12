@@ -25,7 +25,7 @@ function SearchForm({ addItem, user }) {
       },
       other: {
         search_name: nameRef.current.value,
-        userId: user.user? user.user.uid : 'bob',
+        userId: user.user? user.user.uid : 'public',
         userEmail: user.user? user.user.email : "",
       }
     };
@@ -39,8 +39,8 @@ function SearchForm({ addItem, user }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Search:
-        <br />
+        {/* Search: */}
+        {/* <br /> */}
         <input type="text" ref={searchRef} placeholder='Enter keywords or item number' required/>
       </label>
       <br />

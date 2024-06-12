@@ -6,7 +6,7 @@ import ItemList from "./ItemList";
 import { getItems } from "../../services/itemService";
 import { useItemHandlers } from "../../services/useItemHandlers";
 
-function CheckedList({user}) {
+function Search({user}) {
     const [isLoading, setIsLoading] = useState(false);
     const [items, setItems] = useState([]);
   
@@ -14,20 +14,17 @@ function CheckedList({user}) {
       getItems(setIsLoading, setItems);
     }, []);
 
-    
-
     const { handleAddItem, handleDeleteItem, handleRefreshItem, toggleInclude } = useItemHandlers(setIsLoading, setItems, items);
-    const filteredItems = items.filter(item => item.included);
 
     return (
         <>
-            <h1>Items</h1>
+            <h1>Search</h1>
             <SearchForm addItem={handleAddItem} user={user}/>
             {isLoading ? (
                 <p>Loading...</p>
             ) : (
                 <ItemList 
-                    items={filteredItems}
+                    items={items}
                     deleteItem={handleDeleteItem} 
                     refreshItem={handleRefreshItem} 
                     toggleInclude={toggleInclude}
@@ -38,4 +35,4 @@ function CheckedList({user}) {
     )
 }
 
-export default CheckedList;
+export default Search;

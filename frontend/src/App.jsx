@@ -5,8 +5,8 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from './components/Home';
-import Ebay from "./components/Ebay/Ebay";
-import CheckedList from "./components/Ebay/CheckedList"
+import Search from "./components/Ebay/Search";
+import NetWorth from "./components/Ebay/NetWorth"
 import About from './components/About';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
@@ -33,8 +33,8 @@ function App() {
       <Navbar user={userAuth} setUser={setUserAuth}/>
       <Routes>
         <Route path="/" element={<Home user={userAuth}/>} />
-        <Route path="/search/:pageNumber" element={<Ebay user={userAuth}/>} />
-        <Route path="/netwealth/:pageNumber" element={<CheckedList user={userAuth} />} />
+        <Route path="/search/:pageNumber" element={<Search user={userAuth}/>} />
+        <Route path="/netwealth/:pageNumber" element={<NetWorth user={userAuth} />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp setUser={setUserAuth}/>} />
         <Route path="/login" element={<Login setUser={setUserAuth}/>} />

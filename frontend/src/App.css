@@ -34,7 +34,7 @@ body {
 
 table {
   border-collapse: collapse;
-  border: 5px solid pink;
+  /* border: 5px solid pink; */
 }
 
 th, td {
@@ -80,15 +80,14 @@ td span:hover {
 
 .pagination-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
+  position: relative; /* Ensure relative positioning for dropdown alignment */
 }
 
 .pagination {
   display: flex;
-  margin-top: 20px;
-  text-align: center;
 }
 
 .pagination button {
@@ -106,7 +105,8 @@ td span:hover {
 }
 
 .items-per-page {
-  margin-left: auto;
+  position: absolute; /* Absolute positioning to align dropdown to the right */
+  right: 0;
 }
 
 .site-title {
@@ -152,5 +152,9 @@ nav a {
 }
 
 
-
+.net-wealth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 

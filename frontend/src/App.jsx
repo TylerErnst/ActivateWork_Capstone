@@ -5,7 +5,7 @@ import "./App.css";
 
 import Navbar from "./components/Navbar";
 import Home from './components/Home';
-import Search from "./components/Ebay/Search";
+import Search from "./components/Ebay/AddItems";
 import NetWorth from "./components/Ebay/NetWorth"
 import About from './components/About';
 import Login from './components/Login';

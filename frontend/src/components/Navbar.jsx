@@ -16,7 +16,7 @@ function Navbar({ user, setUser }) {
         <Link to="/" className="site-title">Home</Link>
         <ul>
             <li>
-                <Link to="/search/1">Search</Link>
+                <Link to="/search/1">Add Items</Link>
             </li>
             <li>
                 <Link to="/netwealth/1">Net Wealth</Link>

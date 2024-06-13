@@ -1,8 +1,8 @@
 # ActivateWork_Capstone
 
-# [App Name]
+# NetWealthPro
 
-Welcome to [App Name], your ultimate solution for managing and analyzing item data for renter insurance and other purposes.
+Welcome to NetWealthPro, your ultimate solution for managing and analyzing item data for renter insurance and other purposes.
 
 An example deployment can be seen at https://activatework-capstone-frontend.onrender.com/
 
@@ -15,7 +15,7 @@ An example deployment can be seen at https://activatework-capstone-frontend.onre
 
 
 ## Introduction
-[App Name] helps users manage their items efficiently and analyze their pricing data to determine net worth for renter insurance. With features like item addition, deletion, refreshing, and price analysis, [App Name] offers a comprehensive tool for item management.
+NetWealthPro helps users manage their items efficiently and analyze their pricing data to determine net worth for renter insurance. With features like item addition, deletion, refreshing, and price analysis, [App Name] offers a comprehensive tool for item management.
 
 ## Features
 - **Efficient Item Management**: Add, delete, and update items easily.
@@ -25,7 +25,7 @@ An example deployment can be seen at https://activatework-capstone-frontend.onre
 - **User-Friendly Interface**: Intuitive design for seamless user experience.
 
 ## Installation
-To get started with [App Name], follow these steps:
+To get started with NetWealthPro, follow these steps:
 
 1. Clone the repository:
     ```bash

@@ -2,7 +2,7 @@ import getEbayData from "./ebay-api";
 
 const BASE_URL = import.meta.env.DEV ? 
 'http://localhost:8080/api/searches' : 
-'https://activatework-capstone-backend.onrender.com'; // Deploy Link
+`${import.meta.env.VITE_BACKEND_URL}/api/searches`; // Deploy Link
 
 // console.log(import.meta.env.VITE_BACKEND_URL)
 

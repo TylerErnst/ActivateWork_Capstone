@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  border: 5px solid purple;
+  /* border: 5px solid purple; */
 }
 
 :root {
@@ -29,7 +29,7 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  border: 5px solid green;
+  /* border: 5px solid green; */
 }
 
 table {
@@ -123,13 +123,13 @@ td span:hover {
   position: fixed;
   top: 0;
   /* width: 100%; */
-  border: 5px solid coral;
+  /* border: 5px solid coral; */
 }
 
 nav ul {
   padding: 0;
   margin-left: auto;
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   list-style: none;
   display: flex;
   gap: 1rem;

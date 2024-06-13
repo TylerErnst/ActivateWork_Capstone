@@ -5,12 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 
 function Navbar({ user, setUser }) {
-    const navigate=useNavigate()
-    const logOut=async(e)=>{
-        await signOut(auth)
-        setUser(null)
-        // navigate("/login")
-    }
+    const navigate = useNavigate()
+
+    const logOut = async () => {
+        try {
+            await signOut(auth);
+            setUser(null);
+            navigate("/login");
+        } catch (error) {
+            console.error('Error signing out:', error.message);
+        }
+    };
+
   return (
     <nav className="nav">
         <Link to="/" className="site-title">Home</Link>

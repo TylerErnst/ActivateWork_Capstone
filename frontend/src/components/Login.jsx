@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import {auth} from "../firebase/config";
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 function Login({setUser}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -12,10 +15,11 @@ function Login({setUser}) {
     try {
       
       console.log(`Email: ${email}, Password: ${password}`);
-      let res = await signInWithEmailAndPassword(auth,email,password)
-      console.log("🚀 ~ handleSubmit ~ res:", res)
+      let res = await signInWithEmailAndPassword(auth,email,password);
+      console.log("🚀 ~ handleSubmit ~ res:", res);
       // setUser(res.user)
-      setUser({authIsReady:true,user:res.user})
+      setUser({authIsReady:true,user:res.user});
+      navigate('/'); // Redirect to home page after successful login
     } catch (error) {
       console.log("err",error)
     }

@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const ebayDataSchema = new mongoose.Schema({
     warning: {
-      warning_type: { type: String },
-      warning_msg: { type: String }
+        warning_type: { type: String },
+        warning_msg: { type: String }
     },
     success: { type: Boolean },
     average_price: { type: Number },
@@ -13,7 +13,7 @@ const ebayDataSchema = new mongoose.Schema({
     results: { type: Number },
     total_results: { type: Number },
     pages_included: { type: Number },
-    products: [{  }]
+    products: [{ }]
 });
 
 const searchSchema = new mongoose.Schema({
@@ -24,17 +24,19 @@ const searchSchema = new mongoose.Schema({
     category_id: { type: String },
     aspects: [
         {
-          name: { type: String, default: 'LH_ItemCondition' },
-          value: { type: String, default: '' }
+            name: { type: String, default: 'LH_ItemCondition' },
+            value: { type: String, default: '' }
         }
-      ],
+    ],
     userId: { type: String, required: true },
     userEmail: { type: String },
     included: { type: Boolean, default: false },
     ebayData: ebayDataSchema
 });
 
+// Create an index on the userId field
+searchSchema.index({ userId: 1 });
 
-const Search = mongoose.model('search', searchSchema);
+const Search = mongoose.model('Search', searchSchema);
 
 export default Search;

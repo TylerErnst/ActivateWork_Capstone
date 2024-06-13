@@ -15,7 +15,8 @@ function NetWorth({ user }) {
   }, []);
 
   const { handleAddItem, handleDeleteItem, handleRefreshItem, toggleInclude } = useItemHandlers(setIsLoading, setItems, items);
-  const filteredItems = items.filter(item => item.included);
+  const currentItems = items.filter(item => item.included);
+  const filteredItems = currentItems.filter(item => item.userId === (user.user ? user.user.uid : 'public'))
 
   // Calculate total prices
   const calculateTotals = (items) => {

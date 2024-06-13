@@ -166,3 +166,37 @@ nav a {
   line-height: 1.6;
 }
 
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-group input,
+.form-group select,
+.form-group label {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group a {
+  color: #1e90ff;
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+}

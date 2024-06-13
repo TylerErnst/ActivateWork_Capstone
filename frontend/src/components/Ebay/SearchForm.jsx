@@ -36,51 +36,38 @@ function SearchForm({ addItem, user }) {
     nameRef.current.value = '';
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        {/* Search: */}
-        {/* <br /> */}
-        <input type="text" ref={searchRef} placeholder='Enter keywords or item number' required/>
-      </label>
-      <br />
-      <label>
-        <input type="text" ref={excludeRef}placeholder='Exclude words from your search' />
-      </label>
-      <br />
-      <br />
-      <label>
-        <input type="number" ref={catRef} placeholder='Category ID'/>
-        <br />
-        <a href="https://www.isoldwhat.com/">Category ID Lookup</a>
-      </label>
-      <br />
-      <br />
-      <span>Condition: </span>
-        <select ref={conditionRef} defaultValue="3000">
+   return (
+    <form className="search-form" onSubmit={handleSubmit}>
+      <div className="form-group">
+        <input type="text" ref={searchRef} placeholder='Enter keywords or item number' required />
+      </div>
+      <div className="form-group">
+        <input type="text" ref={excludeRef} placeholder='Exclude words from your search' />
+      </div>
+      <div className="form-group">
+        <input type="number" ref={catRef} placeholder='Category ID' />
+        <a href="https://www.isoldwhat.com/" target="_blank" rel="noopener noreferrer">Category ID Lookup</a>
+      </div>
+      <div className="form-group">
+        <label htmlFor="condition">Condition:</label>
+        <select id="condition" ref={conditionRef} defaultValue="3000">
           <option value="">Not Specified</option>
           <option value="1000">New</option>
           <option value="3000">Used</option>
           <option value="7000">For parts or not working</option>
         </select>
-      <br />
-      <label>
-        <span>Number of results to look at: </span>
-        <select ref={numberRef} defaultValue="120">
+      </div>
+      <div className="form-group">
+        <label htmlFor="results">Number of results to look at:</label>
+        <select id="results" ref={numberRef} defaultValue="120">
           <option value="60">60</option>
           <option value="120">120</option>
-          {/* API allows for a search of 240 (and defaults to that) but the db can't accept that much */}
-          {/* <option value="240">240</option> */}
         </select>
-      </label>
-      <br />
-      <label>
-        <input type="text" ref={nameRef} placeholder='Custom Search Name'/>
-      </label>
-      <br />
-      <button>Add Item</button>
-      <br />
-      <br />
+      </div>
+      <div className="form-group">
+        <input type="text" ref={nameRef} placeholder='Custom Search Name' />
+      </div>
+      <button type="submit">Add Item</button>
     </form>
   );
 }

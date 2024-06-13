@@ -55,7 +55,7 @@ function NetWorth({ user }) {
             totalMinPrice={totalMin} 
         />
     </div>
-    <p></p>
+    <h1>Items Included In Calculations:</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (

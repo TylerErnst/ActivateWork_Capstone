@@ -20,6 +20,7 @@ function Search({user}) {
         <>
             <h1>Search</h1>
             <SearchForm addItem={handleAddItem} user={user}/>
+            <h1>All Items:</h1>
             {isLoading ? (
                 <p>Loading...</p>
             ) : (

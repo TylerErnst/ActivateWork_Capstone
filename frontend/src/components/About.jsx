@@ -5,7 +5,7 @@ function About() {
         <div className="about-container">
             <h1>Welcome to NetWealthPro!</h1>
             <p>
-                NetWealthPro is a robust tool designed to assist users in determining the net worth of their possessions for renter insurance purposes. Whether you're tracking your eBay purchases or managing your assets, NetWealthPro provides an intuitive platform to keep your financial information organized and up-to-date.
+                NetWealthPro is a robust tool designed to assist users in determining the net worth of their possessions for renter insurance purposes. Whether you're tracking eBay prices or managing your assets, NetWealthPro provides an intuitive platform to keep your financial information organized and up-to-date.
             </p>
             
             <h2>Features</h2>
